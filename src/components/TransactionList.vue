@@ -45,11 +45,19 @@
       </li>
     </ul>
 
+    <router-link to="/home">
+      <button
+        class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded mt-4"
+      >
+        ← Kembali ke Home
+      </button>
+    </router-link>
+
     <!-- ✅ Tombol Logout -->
-    <button @click="logout">🔓 Logout</button>
+    <!-- <button @click="logout">🔓 Logout</button>
 
     <button @click="router.push('/report')">📊 Lihat Laporan</button>
-    <button @click="router.push('/calculator')">Kalkulator Pembiayaan</button>
+    <button @click="router.push('/calculator')">Kalkulator Pembiayaan</button> -->
 
     <!-- <button @click="openCalculator">Buka Kalkulator</button> -->
   </div>
