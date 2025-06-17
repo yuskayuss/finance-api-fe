@@ -5,17 +5,35 @@
     <form @submit.prevent="calculate">
       <div>
         <label>Jumlah Pembiayaan (Rp):</label>
-        <input type="number" v-model.number="amount" required />
+        <!-- <input type="number" v-model.number="amount" required /> -->
+        <input
+          type="text"
+          :value="formatCurrency(amount)"
+          @input="handleAmountInput"
+          required
+        />
       </div>
 
       <div>
         <label>Pendapatan Bulanan (Rp):</label>
-        <input type="number" v-model.number="income" required />
+        <!-- <input type="number" v-model.number="income" required /> -->
+        <input
+          type="text"
+          :value="formatCurrency(income)"
+          @input="handleIncomeInput"
+          required
+        />
       </div>
 
       <div>
         <label>Tenor (bulan):</label>
-        <input type="number" v-model.number="months" required />
+        <!-- <input type="number" v-model.number="months" required /> -->
+        <input
+          type="text"
+          :value="formatCurrency(months)"
+          @input="handleMonthsInput"
+          required
+        />
       </div>
 
       <button type="submit">Hitung</button>
@@ -50,6 +68,41 @@ const total = ref(0);
 const status = ref("");
 
 // const income = 5000000; // asumsi penghasilan tetap
+
+const formatCurrency = (value) => {
+  if (!value) return "";
+  return new Intl.NumberFormat("id-ID").format(value);
+};
+
+const handleAmountInput = (e) => {
+  let raw = e.target.value.replace(/[^\d]/g, ""); // hanya angka 0–9
+
+  // Update model
+  amount.value = parseInt(raw || "0", 10);
+
+  // Update tampilan input dengan format rupiah
+  e.target.value = formatCurrency(amount.value);
+};
+
+const handleIncomeInput = (e) => {
+  let raw = e.target.value.replace(/[^\d]/g, ""); // hanya angka 0–9
+
+  // Update model
+  income.value = parseInt(raw || "0", 10);
+
+  // Update tampilan input dengan format rupiah
+  e.target.value = formatCurrency(income.value);
+};
+
+const handleMonthsInput = (e) => {
+  let raw = e.target.value.replace(/[^\d]/g, ""); // hanya angka 0–9
+
+  // Update model
+  months.value = parseInt(raw || "0", 10);
+
+  // Update tampilan input dengan format rupiah
+  e.target.value = formatCurrency(months.value);
+};
 
 const calculate = () => {
   const bunga = 0.05 / 12;

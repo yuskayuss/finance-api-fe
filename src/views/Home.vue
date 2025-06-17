@@ -10,6 +10,9 @@
       🧮 Kalkulator Pembiayaan
     </button>
     <button @click="router.push('/report')">📊 Lihat Laporan</button>
+    <button @click="router.push('/calculator/mobil')">
+      🚗 Simulasi Kredit Mobil
+    </button>
   </div>
 
   <router-view />
@@ -38,11 +41,6 @@ const logout = async () => {
     Swal.fire("Logout", "Kamu berhasil logout", "success");
   }
 };
-
-// const logout = () => {
-//   localStorage.removeItem("token");
-//   router.push("/"); // kembali ke halaman login
-// };
 </script>
 
 <style scoped>
