@@ -13,6 +13,7 @@
     <button @click="router.push('/calculator/mobil')">
       🚗 Simulasi Kredit Mobil
     </button>
+    <button @click="router.push('/credit/flat')">Credit flat</button>
   </div>
 
   <router-view />

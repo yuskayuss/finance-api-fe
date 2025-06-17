@@ -5,6 +5,7 @@ import TransactionList from "../components/TransactionList.vue";
 import Report from "../views/Report.vue";
 import LoanCalculator from "../components/LoanCalculator.vue";
 import LoanCalculatorMobil from "../components/LoanCalculatorMobil.vue";
+import LoanCalculatorCreditFlat from "@/components/LoanCalculatorCreditFlat.vue";
 
 const routes = [
   { path: "/", component: LoginForm },
@@ -23,6 +24,10 @@ const routes = [
   {
     path: "/calculator/mobil",
     component: LoanCalculatorMobil,
+  },
+  {
+    path: "/credit/flat",
+    component: LoanCalculatorCreditFlat,
   },
 ];
 
